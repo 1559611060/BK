@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Recharge";
+}
+
+
+<h2>充值积分</h2>
+
+<br />
+<div id="div">
+    个人积分:<p id="Total">{{msg}}</p>
+    <br />
+    @* onkeypress="return event.keyCode>=48&&event.keyCode<=57" ng-pattern="/[^a-zA-Z]/"   设置只能输入数字 *@
+    充值：<input  type="text" id="newTotal" name="newTotal" onkeypress="return event.keyCode>=48&&event.keyCode<=57" ng-pattern="/[^a-zA-Z]/" />
+          <input  type="button" id="but" value="确定"   />
+
+</div>
+
+
+
+
+
+<div>
+
+    <script src="~/Js/Integral/jquery.min.js"></script>
+    <script src="~/Js/Integral/vue2.2.4.js"></script>
+    <script>
+        var _data;
+
+        $.ajax({
+            url: "/Integral/GetIntegral",
+            async: false, //取消异步
+            success: function (data) {
+                _data = data;//获取数据源 用户积分信息
+                console.log(data)
+            }
+        })
+
+        var vue = new Vue({
+            el: "#div",
+            data: {
+                msg: _data.newTotal
+            }
+
+        })
+
+        $(function () {
+            //点击确定按钮
+            $("#but").click(function () {
+                var cz=parseInt($("#Total").html()) + parseInt($("#newTotal").val());
+
+                $.post("/Integral/Recharge_logic", {newTotal:cz}, function (resl) {
+
+
+                })
+                $("#Total").html(cz)
+                alert($("#Total").html())
+            })
+        })
+
+
+    </script>
+
+</div>
+

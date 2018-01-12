@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BKModelStoreContainer">
+    <EntitySet Name="ConsumptionType" EntityType="BKModel.Store.ConsumptionType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Integral" EntityType="BKModel.Store.Integral" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IntegralRecord" EntityType="BKModel.Store.IntegralRecord" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ConsumptionType">
+    <Key>
+      <PropertyRef Name="CTid" />
+    </Key>
+    <Property Name="CTid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CTnamr" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Integral">
+    <Key>
+      <PropertyRef Name="Iid" />
+    </Key>
+    <Property Name="Iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="int" />
+    <Property Name="oldTotal" Type="int" />
+    <Property Name="newTotal" Type="int" />
+    <Property Name="Consumption" Type="int" />
+  </EntityType>
+  <EntityType Name="IntegralRecord">
+    <Key>
+      <PropertyRef Name="IRid" />
+    </Key>
+    <Property Name="IRid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CTid" Type="int" />
+    <Property Name="Expenditure_id" Type="int" />
+    <Property Name="Income_id" Type="int" />
+    <Property Name="Transac" Type="int" />
+    <Property Name="IRtime" Type="datetime" />
+  </EntityType>
+</Schema>

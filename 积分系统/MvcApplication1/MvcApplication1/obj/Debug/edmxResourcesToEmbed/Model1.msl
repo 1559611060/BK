@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BKModelStoreContainer" CdmEntityContainer="BKEntities">
+    <EntitySetMapping Name="ConsumptionType">
+      <EntityTypeMapping TypeName="BKModel.ConsumptionType">
+        <MappingFragment StoreEntitySet="ConsumptionType">
+          <ScalarProperty Name="CTid" ColumnName="CTid" />
+          <ScalarProperty Name="CTnamr" ColumnName="CTnamr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Integral">
+      <EntityTypeMapping TypeName="BKModel.Integral">
+        <MappingFragment StoreEntitySet="Integral">
+          <ScalarProperty Name="Iid" ColumnName="Iid" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="oldTotal" ColumnName="oldTotal" />
+          <ScalarProperty Name="newTotal" ColumnName="newTotal" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegralRecord">
+      <EntityTypeMapping TypeName="BKModel.IntegralRecord">
+        <MappingFragment StoreEntitySet="IntegralRecord">
+          <ScalarProperty Name="IRid" ColumnName="IRid" />
+          <ScalarProperty Name="CTid" ColumnName="CTid" />
+          <ScalarProperty Name="Expenditure_id" ColumnName="Expenditure_id" />
+          <ScalarProperty Name="Income_id" ColumnName="Income_id" />
+          <ScalarProperty Name="Transac" ColumnName="Transac" />
+          <ScalarProperty Name="IRtime" ColumnName="IRtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

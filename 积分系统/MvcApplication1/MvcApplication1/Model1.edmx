@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BKModelStoreContainer">
+          <EntitySet Name="ConsumptionType" EntityType="BKModel.Store.ConsumptionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Integral" EntityType="BKModel.Store.Integral" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IntegralRecord" EntityType="BKModel.Store.IntegralRecord" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ConsumptionType">
+          <Key>
+            <PropertyRef Name="CTid" />
+          </Key>
+          <Property Name="CTid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CTnamr" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Integral">
+          <Key>
+            <PropertyRef Name="Iid" />
+          </Key>
+          <Property Name="Iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="oldTotal" Type="int" />
+          <Property Name="newTotal" Type="int" />
+          <Property Name="Consumption" Type="int" />
+        </EntityType>
+        <EntityType Name="IntegralRecord">
+          <Key>
+            <PropertyRef Name="IRid" />
+          </Key>
+          <Property Name="IRid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CTid" Type="int" />
+          <Property Name="Expenditure_id" Type="int" />
+          <Property Name="Income_id" Type="int" />
+          <Property Name="Transac" Type="int" />
+          <Property Name="IRtime" Type="datetime" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BKModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BKEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ConsumptionType" EntityType="BKModel.ConsumptionType" />
+          <EntitySet Name="Integral" EntityType="BKModel.Integral" />
+          <EntitySet Name="IntegralRecord" EntityType="BKModel.IntegralRecord" />
+        </EntityContainer>
+        <EntityType Name="ConsumptionType">
+          <Key>
+            <PropertyRef Name="CTid" />
+          </Key>
+          <Property Name="CTid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CTnamr" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Integral">
+          <Key>
+            <PropertyRef Name="Iid" />
+          </Key>
+          <Property Name="Iid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="oldTotal" Type="Int32" />
+          <Property Name="newTotal" Type="Int32" />
+          <Property Name="Consumption" Type="Int32" />
+        </EntityType>
+        <EntityType Name="IntegralRecord">
+          <Key>
+            <PropertyRef Name="IRid" />
+          </Key>
+          <Property Name="IRid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CTid" Type="Int32" />
+          <Property Name="Expenditure_id" Type="Int32" />
+          <Property Name="Income_id" Type="Int32" />
+          <Property Name="Transac" Type="Int32" />
+          <Property Name="IRtime" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BKModelStoreContainer" CdmEntityContainer="BKEntities">
+          <EntitySetMapping Name="ConsumptionType">
+            <EntityTypeMapping TypeName="BKModel.ConsumptionType">
+              <MappingFragment StoreEntitySet="ConsumptionType">
+                <ScalarProperty Name="CTid" ColumnName="CTid" />
+                <ScalarProperty Name="CTnamr" ColumnName="CTnamr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Integral">
+            <EntityTypeMapping TypeName="BKModel.Integral">
+              <MappingFragment StoreEntitySet="Integral">
+                <ScalarProperty Name="Iid" ColumnName="Iid" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="oldTotal" ColumnName="oldTotal" />
+                <ScalarProperty Name="newTotal" ColumnName="newTotal" />
+                <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IntegralRecord">
+            <EntityTypeMapping TypeName="BKModel.IntegralRecord">
+              <MappingFragment StoreEntitySet="IntegralRecord">
+                <ScalarProperty Name="IRid" ColumnName="IRid" />
+                <ScalarProperty Name="CTid" ColumnName="CTid" />
+                <ScalarProperty Name="Expenditure_id" ColumnName="Expenditure_id" />
+                <ScalarProperty Name="Income_id" ColumnName="Income_id" />
+                <ScalarProperty Name="Transac" ColumnName="Transac" />
+                <ScalarProperty Name="IRtime" ColumnName="IRtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
